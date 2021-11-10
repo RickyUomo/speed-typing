@@ -1,49 +1,12 @@
 import './App.css';
-import { useState, useEffect, useRef } from 'react'
+import TypeGame from './hooks/typeGame'
 
 function App() {
 
-  const [text, setText] = useState('')
-  const [wordCount, setWordCount] = useState('')
-  const [remainingTime, setRemainingTime] = useState(5)
-  const [isGameStart, setIsGameStart] = useState(false)
-  const textareaRef = useRef(null)
-
-  function handleChange(e) {
-    const { value } = e.target
-    setText(value)
-  }
-
-  function calculateWordCount(string) {
-    const res = string.split(' ')
-    setWordCount(res.filter(word => word !== '').length)
-  }
-
-  function startGame() {
-    setIsGameStart(true)
-    setRemainingTime(5)
-    setText('')
-    setWordCount('')
-    textareaRef.current.disabled = false
-    textareaRef.current.focus()
-  }
-
-  function endGame() {
-    calculateWordCount(text)
-    setIsGameStart(false)
-  }
-
-  useEffect(() => {
-    if (isGameStart && remainingTime > 0) {
-      setTimeout(() => {
-        setRemainingTime(oldtime => oldtime - 1)
-      }, 1000)
-    } else {
-      endGame()
-    }
-
-
-  }, [remainingTime, isGameStart])
+  const {text, handleChange, 
+    startGame, textareaRef,
+     wordCount, isGameStart, 
+     remainingTime} = TypeGame()
 
   return (
     <div>
