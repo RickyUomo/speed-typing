@@ -1,10 +1,10 @@
 import {useState, useEffect, useRef} from 'react'
 
-function TypeGame(){
+function TypeGame(startTime){
 
     const [text, setText] = useState('')
     const [wordCount, setWordCount] = useState('')
-    const [remainingTime, setRemainingTime] = useState(5)
+    const [remainingTime, setRemainingTime] = useState(startTime)
     const [isGameStart, setIsGameStart] = useState(false)
     const textareaRef = useRef(null)
   
@@ -20,7 +20,7 @@ function TypeGame(){
   
     function startGame() {
       setIsGameStart(true)
-      setRemainingTime(5)
+      setRemainingTime(startTime)
       setText('')
       setWordCount('')
       textareaRef.current.disabled = false

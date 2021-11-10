@@ -6,7 +6,7 @@ function App() {
   const {text, handleChange, 
     startGame, textareaRef,
      wordCount, isGameStart, 
-     remainingTime} = TypeGame()
+     remainingTime} = TypeGame(10)
 
   return (
     <div>
