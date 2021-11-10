@@ -1,6 +1,6 @@
 import {useState, useEffect, useRef} from 'react'
 
-function TypeGame(startTime){
+function TypeGame(startTime = 10){
 
     const [text, setText] = useState('')
     const [wordCount, setWordCount] = useState('')

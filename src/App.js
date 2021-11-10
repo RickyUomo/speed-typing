@@ -1,12 +1,12 @@
 import './App.css';
-import TypeGame from './hooks/typeGame'
+import useWordGame from './hooks/useWordGame'
 
 function App() {
 
   const {text, handleChange, 
     startGame, textareaRef,
      wordCount, isGameStart, 
-     remainingTime} = TypeGame(10)
+     remainingTime} = useWordGame(10)
 
   return (
     <div>
